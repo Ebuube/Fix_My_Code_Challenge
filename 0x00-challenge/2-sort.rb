@@ -20,7 +20,12 @@ ARGV.each do |arg|
         if result[i] < i_arg
             i += 1
         else
-            result.insert(i - 1, i_arg)
+            if i == 0
+                result.insert(0, i_arg)  # insert at beginning and right shift
+            else
+                result.insert(i, i_arg) # insert at current pos and righ shift
+            end
+            # result.unshift(i_arg)
             is_inserted = true
             break
         end
